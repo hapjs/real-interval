@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a interval timer and it never sleep</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        table td{
+            border: 1px solid #CCC;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+    
+    <table>
+        <tr>
+            <td>start at:</td>
+            <td><spand id="start"></spand></td>
+        <tr>
+        </tr>
+            <td>now is:</td>
+            <td><spand id="now"></spand></td>
+        <tr>
+        </tr>
+            <td>pass:</td>
+            <td><spand id="pass">0</spand></td>
+        </tr>
+        </tr>
+            <td>setInterval:</td>
+            <td><spand id="count">0</spand></td>
+        </tr>
+        </tr>
+            <td>realInterval:</td>
+            <td><spand id="realInterval">0</spand></td>
+        </tr>
+    </table>
+    
+    <script src="interval.js"></script>
+    <script>
+        var $ = function(id){ 
+            return document.getElementById(id); 
+        };
+        var format = function(dt){
+            return dt.getHours() + ':' + dt.getMinutes() + ':' + dt.getSeconds();
+        }
+
+        var startSpan = $('start'), 
+            nowSpan = $('now'), 
+            passSpan = $('pass'),
+            countSpan = $('count'),
+            realIntervalSpan = $('realInterval'),
+            start = new Date(),
+            count = 0;
+
+        startSpan.innerHTML = format(start);
+        nowSpan.innerHTML = format(start);
+
+        //
+        setInterval(function(){
+            var now = new Date(), 
+                pass = parseInt((now.getTime() - start.getTime())/1000, 10);
+            nowSpan.innerHTML = format(now);
+            passSpan.innerHTML = pass;
+
+            count += 1;
+            countSpan.innerHTML = count;
+        }, 1000);
+
+        new interval(function(pass){
+            realIntervalSpan.innerHTML = pass;
+        }, 1000);
+
+    </script>
+</body>
+</html>

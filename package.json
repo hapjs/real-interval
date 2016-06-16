@@ -1,0 +1,22 @@
+{
+  "name": "real-interval",
+  "version": "0.0.1",
+  "description": "A interval timer never sleep.",
+  "main": "interval.js",
+  "scripts": {
+    "build": "umd interval ./src/index.js ./interval.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hapjs/real-interval.git"
+  },
+  "keywords": [
+    "interval",
+    "timer",
+    "sleep"
+  ],
+  "author": "hapjs <mailhap@qq.com>",
+  "devDependencies": {
+    "umd": "^3.0.1"
+  }
+}
