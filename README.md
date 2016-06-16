@@ -16,8 +16,12 @@ npm install real-interval
 var Interval = require('real-interval');
 
 var timer = new Interval(function(pass){
-    console.log(pass);
+
+    // stop 
+    if(pass = 60){
+        this.stop(); // or return false
+    };
+
 }, 1000);
 
-timer.stop();
 ```
