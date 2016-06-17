@@ -1,4 +1,6 @@
-function interval(callback, intv, total) {
+'use strict';
+
+function Interval(callback, intv, total) {
     var self = this,
         st = new Date().getTime(),
         count = 0,
@@ -39,5 +41,3 @@ function interval(callback, intv, total) {
 
     return self;
 };
-
-return interval;

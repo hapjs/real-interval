@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
     <title>a interval timer and it never sleep</title>
     <style>
         table{
@@ -38,7 +39,7 @@
         </tr>
     </table>
     
-    <script src="interval.js"></script>
+    <script src="./build/interval.js"></script>
     <script>
         var $ = function(id){ 
             return document.getElementById(id); 
@@ -69,7 +70,7 @@
             countSpan.innerHTML = count;
         }, 1000);
 
-        new interval(function(pass){
+        new Interval(function(pass){
             realIntervalSpan.innerHTML = pass;
         }, 1000);
 

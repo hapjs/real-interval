@@ -25,3 +25,5 @@ var timer = new Interval(function(pass){
 }, 1000);
 
 ```
+
+
