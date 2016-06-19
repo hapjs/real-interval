@@ -74,6 +74,12 @@
             realIntervalSpan.innerHTML = pass;
         }, 1000);
 
+        // test
+        // automatic stop after 10 seconds
+        new Interval(function(pass){
+            console.info(pass);
+        }, 1000, 10);
+
     </script>
 </body>
 </html>

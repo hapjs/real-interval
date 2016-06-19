@@ -15,13 +15,13 @@ function Interval(callback, intv, total) {
         count = 0,
         excuteCount = 0,
         span,
-        fn;
+        tick;
 
     if(!total){
         total = 0;
     };
 
-    fn = function() {
+    tick = function() {
         span = new Date().getTime() - st;
         count = Math.floor(span / intv);
         span = intv - (span % intv);
@@ -30,7 +30,7 @@ function Interval(callback, intv, total) {
             if (self._stop) return;
             count++;
             excuteCount++;
-            fn();
+            //
             if(false === callback.call(self, 
                 count, 
                 total - count, 
@@ -38,7 +38,15 @@ function Interval(callback, intv, total) {
                 )
             ){
                 self.stop();
+                return;
             };
+            //
+            if(total && count >= total){
+                self.stop();
+                return;
+            };
+            //
+            tick();
         }, span);
     };
 
@@ -46,7 +54,7 @@ function Interval(callback, intv, total) {
         this._stop = true;
     };
 
-    fn(0);
+    tick(0);
 
     return self;
 };

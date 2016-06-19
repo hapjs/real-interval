@@ -1,6 +1,6 @@
 # real-interval
 
-A interval timer never sleep.
+a not sleep interval timer 
 
 ## Install
 
@@ -14,16 +14,27 @@ npm install real-interval
 
 ```
 var Interval = require('real-interval');
+```
 
-var timer = new Interval(function(pass){
+```
+new Interval(function(pass){
 
     // stop 
     if(pass = 60){
-        this.stop(); // or return false
+        this.stop(); 
+        // or 
+        // return false
     };
 
 }, 1000);
+```
 
+```
+new Interval(function(pass){
+
+    // Automatic stop after 10 seconds
+
+}, 1000, 60);
 ```
 
 
