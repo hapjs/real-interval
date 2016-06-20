@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1">
-    <title>a interval timer and it never sleep</title>
+    <title>test</title>
     <style>
         table{
             border-collapse: collapse;
@@ -41,6 +41,7 @@
     
     <script src="./build/interval.js"></script>
     <script>
+
         var $ = function(id){ 
             return document.getElementById(id); 
         };
@@ -76,8 +77,9 @@
 
         // test
         // automatic stop after 10 seconds
-        new Interval(function(pass){
+        new Interval(function(pass, surplus){
             console.info(pass);
+            console.log('automatic stop after ' + surplus + ' seconds');
         }, 1000, 10);
 
     </script>
