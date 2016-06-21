@@ -1,6 +1,6 @@
 {
   "name": "real-interval",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "a not sleep interval timer.",
   "main": "./build/interval.js",
   "repository": {

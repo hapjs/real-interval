@@ -9,54 +9,59 @@
 }(this, function() {
 'use strict';
 
-function Interval(callback, intv, total) {
-    var self = this,
-        st = new Date().getTime(),
-        count = 0,
-        excuteCount = 0,
-        span,
-        tick;
+function Interval(callback, interval, count, callbackNow) {
 
-    if(!total){
-        total = 0;
-    };
+    var startTime, tick;
+
+    if(typeof callback !== 'function') return;
+    if(!interval) interval = 1000;
+    if(!count) count = 0;
+
+    startTime = new Date().getTime();
 
     tick = function() {
-        span = new Date().getTime() - st;
-        count = Math.floor(span / intv);
-        span = intv - (span % intv);
 
-        self._timer = setTimeout(function() {
-            if (self._stop) return;
-            count++;
-            excuteCount++;
-            //
-            if(false === callback.call(self, 
-                count, 
-                total - count, 
-                count - excuteCount
-                )
-            ){
-                self.stop();
+        var timespan, wait;
+
+        timespan = new Date().getTime() - startTime,
+        wait = interval - (timespan % interval);
+
+        this.pass = Math.floor(timespan / interval) + 1;
+        this.surplus = count - this.pass;
+
+        setTimeout(function() {
+            if (this._stop) return;
+
+            if ( false === callback.call(this, this.pass, this.surplus) ){
+                this.stop();
                 return;
-            };
-            //
-            if(total && count >= total){
-                self.stop();
+            }
+
+            if ( count && !this.surplus){
+                this.stop();
                 return;
-            };
-            //
+            }
+
             tick();
-        }, span);
-    };
+
+        }.bind(this), wait);
+
+    }.bind(this);
 
     this.stop = function() {
         this._stop = true;
+    }
+
+    this.pass = 0;
+    this.surplus = count - this.pass;
+
+    if(callbackNow){
+        callback.call(this, this.pass, this.surplus);
     };
 
     tick(0);
 
-    return self;
+    return this;
 };
 return Interval;
 }));

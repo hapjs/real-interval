@@ -31,12 +31,21 @@ var timer = new Interval(function(pass){
     
     console.log(pass);
     
-    // stop after 60 seconds
-    if(pass == 60){
+    // stop after 24 hours
+    if(pass == 60*60*24){
         this.stop();
     };
 
 }, 1000);
+
+// 1
+// 2
+// 3
+// 4
+// 5
+// 6
+// ...
+// 86400
 ```
 
 这个例子中的 `pass` 是一个计数器， 表示当前经过了多少个1000毫秒。
@@ -44,24 +53,59 @@ var timer = new Interval(function(pass){
 ## usage 2
 
 ```javascript
-// automatic stop after 60 seconds
+// automatic stop after 6 seconds
 var timer = new Interval(function(pass){
 
     console.log(pass);
 
-}, 1000, 60);
+}, 1000, 6);
+
+// 1
+// 2
+// 3
+// 4
+// 5
+// 6
 ```
 
-这个例子中的定时器会在60秒后自动停止。
+这个例子中的定时器会在6秒后自动停止。
 
 ## usage 3
 
 ```javascript
 var timer = new Interval(function(pass, surplus){
 
-    console.log('automatic stop after ' + surplus + ' seconds');
+    console.log('stop after ' + surplus + ' seconds');
 
-}, 1000, 60);
+}, 1000, 6);
+
+// stop after 5 seconds
+// stop after 4 seconds
+// stop after 3 seconds
+// stop after 2 seconds
+// stop after 1 seconds
+// stop after 0 seconds
 ```
 
-这个例子会显示距离自动停止还有多少秒。
+这个例子会显示距离停止还有多少秒。
+
+## usage 4
+
+```javascript
+var timer = new Interval(function(pass, surplus){
+
+    console.log('stop after ' + surplus + ' seconds');
+
+}, 1000, 6, true);
+
+// stop after 6 seconds
+// stop after 5 seconds
+// stop after 4 seconds
+// stop after 3 seconds
+// stop after 2 seconds
+// stop after 1 seconds
+// stop after 0 seconds
+```
+
+这个例子与上个例子不同的地方在于， 回调函数会立即被调用， 而不是1秒之后。
+
