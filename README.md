@@ -37,15 +37,18 @@ var timer = new Interval(function(pass){
     };
 
 }, 1000);
+```
 
-// 1
-// 2
-// 3
-// 4
-// 5
-// 6
-// ...
-// 86400
+打印结果：
+```
+1
+2
+3
+4
+5
+6
+...
+86400
 ```
 
 这个例子中的 `pass` 是一个计数器， 表示当前经过了多少个1000毫秒。
@@ -59,13 +62,16 @@ var timer = new Interval(function(pass){
     console.log(pass);
 
 }, 1000, 6);
+```
 
-// 1
-// 2
-// 3
-// 4
-// 5
-// 6
+打印结果：
+```
+1
+2
+3
+4
+5
+6
 ```
 
 这个例子中的定时器会在6秒后自动停止。
@@ -78,13 +84,16 @@ var timer = new Interval(function(pass, surplus){
     console.log('stop after ' + surplus + ' seconds');
 
 }, 1000, 6);
+```
 
-// stop after 5 seconds
-// stop after 4 seconds
-// stop after 3 seconds
-// stop after 2 seconds
-// stop after 1 seconds
-// stop after 0 seconds
+打印结果：
+```
+stop after 5 seconds
+stop after 4 seconds
+stop after 3 seconds
+stop after 2 seconds
+stop after 1 seconds
+stop after 0 seconds
 ```
 
 这个例子会显示距离停止还有多少秒。
@@ -97,14 +106,17 @@ var timer = new Interval(function(pass, surplus){
     console.log('stop after ' + surplus + ' seconds');
 
 }, 1000, 6, true);
+```
 
-// stop after 6 seconds
-// stop after 5 seconds
-// stop after 4 seconds
-// stop after 3 seconds
-// stop after 2 seconds
-// stop after 1 seconds
-// stop after 0 seconds
+打印结果：
+```
+stop after 6 seconds
+stop after 5 seconds
+stop after 4 seconds
+stop after 3 seconds
+stop after 2 seconds
+stop after 1 seconds
+stop after 0 seconds
 ```
 
 这个例子与上个例子不同的地方在于， 回调函数会立即被调用， 而不是1秒之后。
