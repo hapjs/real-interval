@@ -24,7 +24,9 @@ OR通过脚本引入它：
 <script src="./build/interval.js"></script>
 ```
 
-## usage 1
+## 用法 1
+
+在经过指定个数的时间间隔后停止
 
 ```javascript
 var timer = new Interval(function(pass){
@@ -53,7 +55,9 @@ var timer = new Interval(function(pass){
 
 这个例子中的 `pass` 是一个计数器， 表示当前经过了多少个1000毫秒。
 
-## usage 2
+## 用法 2
+
+设定执行次数，自动停止
 
 ```javascript
 // automatic stop after 6 seconds
@@ -76,7 +80,9 @@ var timer = new Interval(function(pass){
 
 这个例子中的定时器会在6秒后自动停止。
 
-## usage 3
+## 用法 3
+
+显示剩余时间
 
 ```javascript
 var timer = new Interval(function(pass, surplus){
@@ -98,7 +104,9 @@ stop after 0 seconds
 
 这个例子会显示距离停止还有多少秒。
 
-## usage 4
+## 用法 4
+
+立即执行
 
 ```javascript
 var timer = new Interval(function(pass, surplus){
