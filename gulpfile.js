@@ -18,4 +18,8 @@ gulp.task('build', ['umd'], function() {
 		.pipe(gulp.dest('./build'));
 });
 
-gulp.task('default', ['build']);
+gulp.task('default', ['build'], function(){
+	setTimeout(function(){
+		console.log('bulid success');
+	}, 0);
+});

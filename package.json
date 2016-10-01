@@ -3,6 +3,9 @@
   "version": "0.0.6",
   "description": "a not sleep interval timer.",
   "main": "./build/interval.js",
+  "scripts": {
+    "build": "gulp"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/hapjs/real-interval.git"
