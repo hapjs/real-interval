@@ -28,7 +28,7 @@ OR通过脚本引入它：
 
 在经过指定个数的时间间隔后停止
 
-```javascript
+```
 var timer = new Interval(function(pass){
     
     console.log(pass);
@@ -59,7 +59,7 @@ var timer = new Interval(function(pass){
 
 设定执行次数，自动停止
 
-```javascript
+```
 // automatic stop after 6 seconds
 var timer = new Interval(function(pass){
 
@@ -84,7 +84,7 @@ var timer = new Interval(function(pass){
 
 显示剩余时间
 
-```javascript
+```
 var timer = new Interval(function(pass, surplus){
 
     console.log('stop after ' + surplus + ' seconds');
@@ -108,7 +108,7 @@ stop after 0 seconds
 
 立即执行
 
-```javascript
+```
 var timer = new Interval(function(pass, surplus){
 
     console.log('stop after ' + surplus + ' seconds');
